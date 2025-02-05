@@ -1,0 +1,12 @@
+{
+    "connection.username": "*****",
+    "connection.url": "*****",
+    "connection.password": "*****",
+    "name": "clickstream-to-opensearch",
+    "key.ignore": "true",
+    "connector.class": "io.aiven.kafka.connect.opensearch.OpensearchSinkConnector",
+    "tasks.max": "1",
+    "max.buffered.records": "1000",
+    "schema.ignore": "true",
+    "topics": "sensor_readings"
+}
