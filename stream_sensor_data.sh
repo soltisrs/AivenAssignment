@@ -21,7 +21,7 @@ stream_data() {
         DATA=$(generate_sensor_data)
         echo "Sending: $DATA"
         echo "$DATA" | kcat -F kcat.config -t $TOPIC -P
-        sleep 1 # Optional: pause between messages
+        sleep 1 
     done
 }
 
