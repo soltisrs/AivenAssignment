@@ -9,6 +9,7 @@
   }
 }
 
+# Token in terraform.tfvars file (omitted for security)
 provider "aiven" {
   api_token = var.aiven_api_token
 }
