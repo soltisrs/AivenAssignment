@@ -54,7 +54,7 @@ resource "aiven_kafka_topic" "clickstream_topic" {
     cleanup_policy = "delete"
   }
 }
-
+# Create Opensearch Service
 resource "aiven_opensearch" "opensearch" {
   project      = var.project_name
   service_name = "demo-opensearch"
