@@ -47,14 +47,15 @@ class SensorDataConsumer:
         except Exception as e:
             print(f"Error connecting to PostgreSQL: {e}")
             sys.exit(1)
-            
+        # Initialize session variables   
         self.sensor_sessions = defaultdict(list)
         self.session_last_seen = {}
         self.current_session_id = str(uuid.uuid4())  # Current active session ID
         self.session_start_time = datetime.now()     # Track when the current session started
 
-
+    
     def get_db_connection(self):
+        """Establish database connection"""
         return psycopg2.connect(self.postgres_uri)
 
     def save_readings_to_postgres(self, reading):
@@ -82,7 +83,11 @@ class SensorDataConsumer:
             return False
     
     def process_stream(self):
-        """Main processing loop"""
+        """Main processing loop
+        This loop listens to simulated Kafka event stream data and writes records to a PostgreSQL table.
+        It then computes session based metrics and writes these aggregated metrics to another PostgreSQL table.
+        Sessions are determined by periods of inactivity in the event streams.
+        """
         try:
             print("Starting to consume sensor readings...")
             while True:
@@ -217,7 +222,7 @@ if __name__ == "__main__":
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
     );
     """
-        
+    # Redacted for security purposes    
     POSTGRES_URI = "*****"
     
     print("Initializing consumer...")
