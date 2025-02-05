@@ -1,5 +1,5 @@
- # Creating all Aiven resources 
- 
+ # Creating all Aiven resources in a Terraform tempalte
+
  terraform {
   required_providers {
     aiven = {
@@ -55,6 +55,7 @@ resource "aiven_kafka_topic" "clickstream_topic" {
     cleanup_policy = "delete"
   }
 }
+
 # Create Opensearch Service
 resource "aiven_opensearch" "opensearch" {
   project      = var.project_name
