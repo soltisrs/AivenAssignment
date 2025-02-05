@@ -218,7 +218,7 @@ if __name__ == "__main__":
     );
     """
         
-    POSTGRES_URI = "postgres://avnadmin:AVNS_XCrhTdkKJ6HRIzgIpGP@postgres-clickstream-clickstream-analytics.d.aivencloud.com:19356/defaultdb?sslmode=require"
+    POSTGRES_URI = "*****"
     
     print("Initializing consumer...")
     consumer = SensorDataConsumer("kcat.config", POSTGRES_URI)
